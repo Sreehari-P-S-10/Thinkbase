@@ -28,8 +28,8 @@
     height: 100%;
     overflow: hidden;
     font-family: 'DM Sans', sans-serif;
-    background: #030712;
-    color: #e2e8f0;
+    background: #1a1a18;
+    color: #e9e5e0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -51,18 +51,18 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #1e3a6a;
+    background: #4a4a45;
     border-radius: 2px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #2a4f90;
+    background: #5c5c55;
   }
 
   /* Selection */
   ::selection {
-    background: rgba(0, 212, 255, 0.25);
-    color: #e2e8f0;
+    background: rgba(64, 145, 108, 0.3);
+    color: #e9e5e0;
   }
 }
 
@@ -71,82 +71,78 @@
 
   /* Glass panel */
   .glass {
-    background: rgba(11, 25, 58, 0.6);
+    background: rgba(45, 45, 42, 0.7);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(30, 58, 106, 0.6);
+    border: 1px solid rgba(74, 74, 69, 0.5);
   }
 
   .glass-sm {
-    background: rgba(11, 25, 58, 0.4);
+    background: rgba(45, 45, 42, 0.5);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(30, 58, 106, 0.4);
+    border: 1px solid rgba(74, 74, 69, 0.3);
   }
 
-  /* Glow borders */
+  /* Subtle accent borders */
   .border-cyan-glow {
-    border-color: #00d4ff;
-    box-shadow: 0 0 12px rgba(0, 212, 255, 0.3);
+    border-color: #2d6a4f;
+    box-shadow: 0 0 8px rgba(45, 106, 79, 0.2);
   }
 
   .border-violet-glow {
-    border-color: #7c3aed;
-    box-shadow: 0 0 12px rgba(124, 58, 237, 0.3);
+    border-color: #6b705c;
+    box-shadow: 0 0 8px rgba(107, 112, 92, 0.2);
   }
 
-  /* Neural grid background */
+  /* Subtle background pattern */
   .bg-neural {
-    background-color: #030712;
+    background-color: #1a1a18;
     background-image:
-      linear-gradient(rgba(0, 212, 255, 0.025) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0, 212, 255, 0.025) 1px, transparent 1px),
-      radial-gradient(ellipse at 20% 20%, rgba(124, 58, 237, 0.08) 0%, transparent 60%),
-      radial-gradient(ellipse at 80% 80%, rgba(0, 212, 255, 0.05) 0%, transparent 60%);
-    background-size: 32px 32px, 32px 32px, 100% 100%, 100% 100%;
+      radial-gradient(ellipse at 20% 20%, rgba(107, 112, 92, 0.05) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 80%, rgba(45, 106, 79, 0.04) 0%, transparent 60%);
+    background-size: 100% 100%, 100% 100%;
   }
 
-  /* Scan line effect */
+  /* Scan line effect - more subtle */
   .scan-line::after {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.4), transparent);
-    animation: scanLine 8s linear infinite;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(64, 145, 108, 0.2), transparent);
+    animation: scanLine 10s linear infinite;
     pointer-events: none;
   }
 
-  /* Neon text */
+  /* Accent text - subtle */
   .text-neon-cyan {
-    color: #00d4ff;
-    text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+    color: #40916c;
   }
 
   .text-neon-violet {
-    color: #a78bfa;
-    text-shadow: 0 0 10px rgba(124, 58, 237, 0.5);
+    color: #a3b18a;
   }
 
   /* Typing cursor */
   .typing-cursor::after {
     content: '▋';
     animation: typing 1s steps(1) infinite;
-    color: #00d4ff;
+    color: #40916c;
     margin-left: 2px;
   }
 
   /* Message bubble */
   .message-user {
-    background: linear-gradient(135deg, rgba(0, 212, 255, 0.12), rgba(0, 212, 255, 0.06));
-    border: 1px solid rgba(0, 212, 255, 0.2);
+    background: linear-gradient(135deg, rgba(45, 106, 79, 0.15), rgba(45, 106, 79, 0.08));
+    border: 1px solid rgba(45, 106, 79, 0.25);
   }
 
   .message-assistant {
-    background: rgba(11, 25, 58, 0.5);
-    border: 1px solid rgba(30, 58, 106, 0.5);
+    background: rgba(45, 45, 42, 0.6);
+    border: 1px solid rgba(74, 74, 69, 0.4);
   }
 
   /* Node chip */
@@ -170,7 +166,7 @@
 
   .sidebar-item.active {
     @apply text-cyan bg-surface border border-border;
-    box-shadow: inset 0 0 20px rgba(0, 212, 255, 0.05);
+    box-shadow: inset 0 0 20px rgba(45, 106, 79, 0.08);
   }
 
   /* Input field */
@@ -184,7 +180,7 @@
   /* Button variants */
   .btn-primary {
     @apply flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium
-           bg-cyan text-void hover:bg-cyan-bright
+           bg-cyan text-white hover:bg-cyan-bright
            transition-all duration-150 active:scale-95;
   }
 
@@ -196,7 +192,7 @@
 
   .btn-danger {
     @apply flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium
-           text-rose-400 hover:bg-rose-500/10 hover:text-rose-300
+           text-rose hover:bg-rose/10 hover:text-rose-dim
            transition-all duration-150 active:scale-95;
   }
 }
@@ -231,8 +227,8 @@
 /* ── Animations (keyframes) ────────────────────────────────────────────────── */
 @keyframes scanLine {
   0%   { transform: translateY(-100%); opacity: 0; }
-  10%  { opacity: 1; }
-  90%  { opacity: 1; }
+  10%  { opacity: 0.5; }
+  90%  { opacity: 0.5; }
   100% { transform: translateY(100vh); opacity: 0; }
 }
 
@@ -242,13 +238,13 @@
 }
 
 @keyframes glowPulse {
-  0%, 100% { box-shadow: 0 0 20px rgba(0,212,255,0.2); }
-  50%       { box-shadow: 0 0 40px rgba(0,212,255,0.5), 0 0 80px rgba(0,212,255,0.2); }
+  0%, 100% { box-shadow: 0 0 12px rgba(45,106,79,0.15); }
+  50%       { box-shadow: 0 0 20px rgba(45,106,79,0.25), 0 0 40px rgba(45,106,79,0.1); }
 }
 
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-8px); }
+  50%       { transform: translateY(-6px); }
 }
 
 @keyframes fadeIn {
@@ -286,7 +282,7 @@
 .markdown-content p  { @apply mb-3 text-text-secondary; }
 
 .markdown-content code {
-  @apply font-mono text-2xs bg-surface px-1.5 py-0.5 rounded text-cyan;
+  @apply font-mono text-2xs bg-surface px-1.5 py-0.5 rounded text-emerald;
 }
 
 .markdown-content pre {
@@ -307,11 +303,11 @@
 .markdown-content ol li { @apply list-decimal; }
 
 .markdown-content a {
-  @apply text-cyan underline decoration-cyan/30 hover:decoration-cyan;
+  @apply text-emerald underline decoration-emerald/30 hover:decoration-emerald;
 }
 
 .markdown-content blockquote {
-  @apply border-l-2 border-cyan pl-4 my-3 text-text-secondary italic;
+  @apply border-l-2 border-emerald pl-4 my-3 text-text-secondary italic;
 }
 
 .markdown-content table {

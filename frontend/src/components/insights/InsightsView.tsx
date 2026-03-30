@@ -72,8 +72,8 @@ function StatCard({ icon: Icon, label, value, sub, color }: {
 
 // ─── Trend icon ───────────────────────────────────────────────────────────────
 function TrendIcon({ trend }: { trend: string }) {
-  if (trend === 'rising')  return <TrendingUp   className="w-3.5 h-3.5 text-emerald-400" />
-  if (trend === 'falling') return <TrendingDown  className="w-3.5 h-3.5 text-rose-400" />
+  if (trend === 'rising')  return <TrendingUp   className="w-3.5 h-3.5 text-emerald" />
+  if (trend === 'falling') return <TrendingDown  className="w-3.5 h-3.5 text-rose" />
   return <Minus className="w-3.5 h-3.5 text-text-muted" />
 }
 
@@ -111,10 +111,10 @@ export function InsightsView() {
 
           {/* Stat cards */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-            <StatCard icon={FileText}      label="Documents"    value={documents.length}  sub="indexed & searchable" color="bg-rose-500/10 text-rose-400" />
+            <StatCard icon={FileText}      label="Documents"    value={documents.length}  sub="indexed & searchable" color="bg-rose/10 text-rose" />
             <StatCard icon={MessageSquare} label="Queries"      value={totalQueries || 28} sub="this session"          color="bg-cyan/10 text-cyan" />
-            <StatCard icon={Brain}         label="Topics"       value={18}                sub="in knowledge graph"    color="bg-violet/10 text-violet-400" />
-            <StatCard icon={Zap}           label="Avg Response" value="1.2s"              sub="processing time"       color="bg-amber-500/10 text-amber-400" />
+            <StatCard icon={Brain}         label="Topics"       value={18}                sub="in knowledge graph"    color="bg-violet/10 text-violet" />
+            <StatCard icon={Zap}           label="Avg Response" value="1.2s"              sub="processing time"       color="bg-amber/10 text-amber" />
           </div>
 
           {/* Charts row */}
@@ -126,19 +126,19 @@ export function InsightsView() {
                 <AreaChart data={STREAK_DATA} margin={{ top: 5, right: 5, left: -20, bottom: 0 }}>
                   <defs>
                     <linearGradient id="queriesGrad" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%"  stopColor="#00d4ff" stopOpacity={0.3} />
-                      <stop offset="95%" stopColor="#00d4ff" stopOpacity={0} />
+                      <stop offset="5%"  stopColor="#2d6a4f" stopOpacity={0.3} />
+                      <stop offset="95%" stopColor="#2d6a4f" stopOpacity={0} />
                     </linearGradient>
                     <linearGradient id="docsGrad" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%"  stopColor="#7c3aed" stopOpacity={0.3} />
-                      <stop offset="95%" stopColor="#7c3aed" stopOpacity={0} />
+                      <stop offset="5%"  stopColor="#6b705c" stopOpacity={0.3} />
+                      <stop offset="95%" stopColor="#6b705c" stopOpacity={0} />
                     </linearGradient>
                   </defs>
-                  <XAxis dataKey="date" tick={{ fill: '#475569', fontSize: 10, fontFamily: 'IBM Plex Mono' }} axisLine={false} tickLine={false} />
-                  <YAxis tick={{ fill: '#475569', fontSize: 10, fontFamily: 'IBM Plex Mono' }} axisLine={false} tickLine={false} />
+                  <XAxis dataKey="date" tick={{ fill: '#7a756d', fontSize: 10, fontFamily: 'IBM Plex Mono' }} axisLine={false} tickLine={false} />
+                  <YAxis tick={{ fill: '#7a756d', fontSize: 10, fontFamily: 'IBM Plex Mono' }} axisLine={false} tickLine={false} />
                   <Tooltip content={<CustomTooltip />} />
-                  <Area type="monotone" dataKey="queries" stroke="#00d4ff" strokeWidth={1.5} fill="url(#queriesGrad)" />
-                  <Area type="monotone" dataKey="docs"    stroke="#7c3aed" strokeWidth={1.5} fill="url(#docsGrad)" />
+                  <Area type="monotone" dataKey="queries" stroke="#2d6a4f" strokeWidth={1.5} fill="url(#queriesGrad)" />
+                  <Area type="monotone" dataKey="docs"    stroke="#6b705c" strokeWidth={1.5} fill="url(#docsGrad)" />
                 </AreaChart>
               </ResponsiveContainer>
               <div className="flex items-center gap-4 mt-2">
@@ -147,7 +147,7 @@ export function InsightsView() {
                   <span className="text-2xs text-text-muted font-mono">Queries</span>
                 </div>
                 <div className="flex items-center gap-1.5">
-                  <div className="w-2.5 h-0.5 bg-violet-500 rounded" />
+                  <div className="w-2.5 h-0.5 bg-violet rounded" />
                   <span className="text-2xs text-text-muted font-mono">Documents added</span>
                 </div>
               </div>
@@ -158,9 +158,9 @@ export function InsightsView() {
               <p className="text-xs font-semibold text-text-secondary mb-2 font-mono">Knowledge Coverage</p>
               <ResponsiveContainer width="100%" height={180}>
                 <RadarChart data={RADAR_DATA} margin={{ top: 10, right: 20, left: 20, bottom: 10 }}>
-                  <PolarGrid stroke="#1e3a6a" />
-                  <PolarAngleAxis dataKey="topic" tick={{ fill: '#475569', fontSize: 9, fontFamily: 'IBM Plex Mono' }} />
-                  <Radar dataKey="score" stroke="#00d4ff" fill="#00d4ff" fillOpacity={0.15} strokeWidth={1.5} />
+                  <PolarGrid stroke="#4a4a45" />
+                  <PolarAngleAxis dataKey="topic" tick={{ fill: '#7a756d', fontSize: 9, fontFamily: 'IBM Plex Mono' }} />
+                  <Radar dataKey="score" stroke="#2d6a4f" fill="#2d6a4f" fillOpacity={0.15} strokeWidth={1.5} />
                 </RadarChart>
               </ResponsiveContainer>
             </div>
@@ -191,7 +191,7 @@ export function InsightsView() {
                           initial={{ width: 0 }}
                           animate={{ width: `${(t.count / TOPIC_DATA[0].count) * 100}%` }}
                           transition={{ duration: 0.8, delay: i * 0.1, ease: 'easeOut' }}
-                          className="h-full rounded-full bg-gradient-to-r from-cyan to-violet-500"
+                          className="h-full rounded-full bg-gradient-to-r from-cyan to-violet"
                         />
                       </div>
                     </div>
@@ -204,7 +204,7 @@ export function InsightsView() {
             <div className="glass-sm rounded-xl p-4">
               <div className="flex items-center justify-between mb-4">
                 <p className="text-xs font-semibold text-text-secondary font-mono">Suggested Roadmap</p>
-                <Award className="w-4 h-4 text-amber-400" />
+                <Award className="w-4 h-4 text-amber" />
               </div>
               <div className="space-y-3">
                 {ROADMAP.map((r) => {
@@ -216,7 +216,7 @@ export function InsightsView() {
                           <p className="text-xs font-semibold text-text-primary">{r.topic}</p>
                           <span className={cn(
                             'text-2xs font-mono',
-                            r.level === 'Weak' ? 'text-rose-400' : 'text-amber-400'
+                            r.level === 'Weak' ? 'text-rose' : 'text-amber'
                           )}>
                             {r.level} area
                           </span>
@@ -228,7 +228,7 @@ export function InsightsView() {
                       <div className="flex items-center gap-2">
                         <div className="flex-1 h-1.5 bg-surface rounded-full overflow-hidden">
                           <div
-                            className="h-full rounded-full bg-amber-400"
+                            className="h-full rounded-full bg-amber"
                             style={{ width: `${pct}%` }}
                           />
                         </div>

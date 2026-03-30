@@ -7,9 +7,9 @@ import type { VoiceState } from '@/types'
 
 const VOICE_COLORS: Record<VoiceState, string> = {
   idle:       'text-text-muted',
-  listening:  'text-rose-400',
-  processing: 'text-amber-400',
-  speaking:   'text-emerald-400',
+  listening:  'text-rose',
+  processing: 'text-amber',
+  speaking:   'text-emerald',
 }
 
 const VOICE_LABELS: Record<VoiceState, string> = {
@@ -26,7 +26,7 @@ function Waveform({ active }: { active: boolean }) {
       {Array.from({ length: 12 }).map((_, i) => (
         <motion.div
           key={i}
-          className="w-0.5 rounded-full bg-rose-400"
+          className="w-0.5 rounded-full bg-rose"
           animate={active ? {
             height: ['4px', `${6 + Math.random() * 14}px`, '4px'],
           } : { height: '4px' }}
@@ -115,14 +115,14 @@ export function BottomPanel() {
           className={cn(
             'relative w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-200',
             voiceState === 'listening'
-              ? 'bg-rose-500/20 border border-rose-500/50 text-rose-400'
+              ? 'bg-rose/20 border border-rose/50 text-rose'
               : 'bg-surface border border-border text-text-muted hover:text-text-primary hover:border-cyan/40',
             voiceState === 'processing' && 'opacity-50 cursor-not-allowed'
           )}
           disabled={voiceState === 'processing' || voiceState === 'speaking'}
         >
           {voiceState === 'processing' ? (
-            <Loader2 className="w-4 h-4 animate-spin text-amber-400" />
+            <Loader2 className="w-4 h-4 animate-spin text-amber" />
           ) : voiceState === 'listening' ? (
             <MicOff className="w-4 h-4" />
           ) : (
@@ -131,7 +131,7 @@ export function BottomPanel() {
 
           {/* Pulse ring when listening */}
           {voiceState === 'listening' && (
-            <span className="absolute inset-0 rounded-full border border-rose-400 animate-ping opacity-40" />
+            <span className="absolute inset-0 rounded-full border border-rose animate-ping opacity-40" />
           )}
         </button>
 
@@ -155,7 +155,7 @@ export function BottomPanel() {
 
         {/* Speaking indicator */}
         {voiceState === 'speaking' && (
-          <div className="flex items-center gap-1.5 text-emerald-400">
+          <div className="flex items-center gap-1.5 text-emerald">
             <Volume2 className="w-3.5 h-3.5" />
             <span className="text-xs font-mono">Speaking</span>
           </div>
@@ -202,7 +202,7 @@ export function BottomPanel() {
                     className={cn(
                       'w-14 h-14 rounded-full flex items-center justify-center transition-all duration-200',
                       voiceState === 'listening'
-                        ? 'bg-rose-500/20 border-2 border-rose-500 text-rose-400 animate-pulse'
+                        ? 'bg-rose/20 border-2 border-rose text-rose animate-pulse'
                         : 'bg-surface border-2 border-border text-text-secondary hover:border-cyan hover:text-cyan'
                     )}
                   >

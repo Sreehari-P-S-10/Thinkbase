@@ -65,24 +65,24 @@ export function extractDomain(url: string): string {
 /** Map a document type to a display color class */
 export function docTypeColor(type: string): string {
   const map: Record<string, string> = {
-    pdf:      'text-rose-400',
-    youtube:  'text-red-400',
-    url:      'text-cyan-400',
-    markdown: 'text-emerald-400',
-    text:     'text-amber-400',
-    note:     'text-violet-400',
+    pdf:      'text-rose',
+    youtube:  'text-amber',
+    url:      'text-emerald',
+    markdown: 'text-cyan',
+    text:     'text-violet',
+    note:     'text-violet-bright',
   }
   return map[type] ?? 'text-text-secondary'
 }
 
 export function nodeTypeColor(type: string): string {
   const map: Record<string, string> = {
-    concept:  '#00d4ff',
-    document: '#7c3aed',
-    entity:   '#10b981',
-    topic:    '#f59e0b',
+    concept:  '#2d6a4f',
+    document: '#6b705c',
+    entity:   '#588157',
+    topic:    '#bc6c25',
   }
-  return map[type] ?? '#64748b'
+  return map[type] ?? '#7a756d'
 }
 
 /** Debounce a function */

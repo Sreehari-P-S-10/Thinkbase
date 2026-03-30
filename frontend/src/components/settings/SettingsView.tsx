@@ -82,7 +82,7 @@ export function SettingsView() {
           <Settings className="w-4 h-4 text-cyan" />
           <h1 className="font-display font-semibold text-sm text-text-primary">Settings</h1>
         </div>
-        <button onClick={handleSave} className={cn('btn-primary', saved && 'bg-emerald-500 hover:bg-emerald-400')}>
+        <button onClick={handleSave} className={cn('btn-primary', saved && 'bg-emerald hover:bg-emerald-bright')}>
           {saved ? <><CheckCircle2 className="w-3.5 h-3.5" /> Saved</> : <><Save className="w-3.5 h-3.5" /> Save Changes</>}
         </button>
       </div>
@@ -92,8 +92,8 @@ export function SettingsView() {
 
           {/* API Keys */}
           <Section icon={Key} title="API Keys">
-            <div className="glass rounded-lg p-3 border border-amber-500/20 bg-amber-500/5 mb-4">
-              <p className="text-xs text-amber-400 font-mono">
+            <div className="glass rounded-lg p-3 border border-amber/20 bg-amber/5 mb-4">
+              <p className="text-xs text-amber font-mono">
                 ⚠ API keys are stored locally in your browser. Never share this device's storage.
                 In production, keys are stored server-side encrypted.
               </p>

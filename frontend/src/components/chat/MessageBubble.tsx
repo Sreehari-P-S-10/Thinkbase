@@ -35,7 +35,7 @@ export function MessageBubble({ message }: Props) {
       )}>
         {isUser
           ? <User className="w-3.5 h-3.5 text-cyan" />
-          : <Brain className="w-3.5 h-3.5 text-violet-400" />
+          : <Brain className="w-3.5 h-3.5 text-violet" />
         }
       </div>
 
@@ -55,7 +55,7 @@ export function MessageBubble({ message }: Props) {
                 <span className="text-text-muted text-sm">Thinking</span>
               )}
               {isStreaming && message.content && (
-                <span className="inline-block w-0.5 h-4 bg-cyan ml-0.5 animate-pulse" />
+                <span className="inline-block w-0.5 h-4 bg-emerald ml-0.5 animate-pulse" />
               )}
             </div>
           )}
@@ -73,7 +73,7 @@ export function MessageBubble({ message }: Props) {
           {!isUser && message.metadata && (
             <div className="flex items-center gap-2">
               <div className="flex items-center gap-1 text-2xs text-text-muted font-mono">
-                <Zap className="w-2.5 h-2.5 text-amber-400" />
+                <Zap className="w-2.5 h-2.5 text-amber" />
                 {message.metadata.model}
               </div>
               {message.metadata.tokensUsed && (
@@ -91,7 +91,7 @@ export function MessageBubble({ message }: Props) {
               className="opacity-0 group-hover:opacity-100 transition-opacity text-text-muted hover:text-text-primary"
             >
               {copied
-                ? <Check className="w-3 h-3 text-emerald-400" />
+                ? <Check className="w-3 h-3 text-emerald" />
                 : <Copy className="w-3 h-3" />
               }
             </button>
@@ -125,7 +125,7 @@ export function MessageBubble({ message }: Props) {
                       <span className="text-2xs font-semibold text-cyan font-mono truncate">
                         {src.documentTitle}
                       </span>
-                      <span className="text-2xs text-emerald-400 font-mono flex-shrink-0 ml-2">
+                      <span className="text-2xs text-emerald font-mono flex-shrink-0 ml-2">
                         {(src.relevanceScore * 100).toFixed(0)}% match
                       </span>
                     </div>

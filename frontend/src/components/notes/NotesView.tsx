@@ -39,10 +39,10 @@ function DocCard({ doc, selected, onSelect, onChat }: {
       <div className="flex items-start gap-3 mb-3">
         <div className={cn(
           'w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0',
-          doc.type === 'pdf'      ? 'bg-rose-500/10'
-          : doc.type === 'youtube' ? 'bg-red-500/10'
+          doc.type === 'pdf'      ? 'bg-rose/10'
+          : doc.type === 'youtube' ? 'bg-amber/10'
           : doc.type === 'url'     ? 'bg-cyan/10'
-          : 'bg-emerald-500/10'
+          : 'bg-emerald/10'
         )}>
           <DocTypeIcon type={doc.type} />
         </div>
@@ -64,9 +64,9 @@ function DocCard({ doc, selected, onSelect, onChat }: {
         {/* Status dot */}
         <div className={cn(
           'w-1.5 h-1.5 rounded-full flex-shrink-0 mt-1.5',
-          doc.status === 'ready'      ? 'bg-emerald-400'
-          : doc.status === 'processing' ? 'bg-amber-400 animate-pulse'
-          : 'bg-rose-400'
+          doc.status === 'ready'      ? 'bg-emerald'
+          : doc.status === 'processing' ? 'bg-amber animate-pulse'
+          : 'bg-rose'
         )} />
       </div>
 
@@ -107,7 +107,7 @@ function DocCard({ doc, selected, onSelect, onChat }: {
           </button>
           <button
             onClick={(e) => e.stopPropagation()}
-            className="w-6 h-6 rounded flex items-center justify-center text-text-muted hover:text-rose-400 hover:bg-rose-500/10 transition-colors"
+            className="w-6 h-6 rounded flex items-center justify-center text-text-muted hover:text-rose hover:bg-rose/10 transition-colors"
             title="Delete"
           >
             <Trash2 className="w-3.5 h-3.5" />

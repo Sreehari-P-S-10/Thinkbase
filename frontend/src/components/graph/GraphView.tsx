@@ -214,7 +214,7 @@ export function GraphView() {
       .append('line')
       .attr('stroke', (e: GraphEdge) => {
         const src = nodes.find((n) => n.id === (e.source as unknown as GraphNode).id || n.id === e.source)
-        return src ? nodeTypeColor(src.type) + '40' : '#1e3a6a'
+        return src ? nodeTypeColor(src.type) + '40' : '#4a4a45'
       })
       .attr('stroke-width', (e: GraphEdge) => Math.max(0.5, e.weight * 0.2))
       .attr('stroke-dasharray', (e: GraphEdge) => e.type === 'references' ? '4,3' : 'none')
@@ -266,7 +266,7 @@ export function GraphView() {
       .attr('dy', (d: GraphNode) => d.weight * 2.5 + 18)
       .attr('font-size', '10px')
       .attr('font-family', 'DM Sans, sans-serif')
-      .attr('fill', '#94a3b8')
+      .attr('fill', '#b5b0a8')
       .attr('pointer-events', 'none')
 
     // Tick

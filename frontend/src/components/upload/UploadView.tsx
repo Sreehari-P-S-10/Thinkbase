@@ -25,9 +25,9 @@ function JobCard({ job, onRemove }: { job: UploadJob; onRemove: () => void }) {
   const statusColor = {
     idle:       'text-text-muted',
     uploading:  'text-cyan',
-    processing: 'text-amber-400',
-    complete:   'text-emerald-400',
-    error:      'text-rose-400',
+    processing: 'text-amber',
+    complete:   'text-emerald',
+    error:      'text-rose',
   }[job.status]
 
   return (
@@ -39,8 +39,8 @@ function JobCard({ job, onRemove }: { job: UploadJob; onRemove: () => void }) {
     >
       <div className={cn('w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0', {
         'bg-cyan/10':    job.type === 'pdf' || job.type === 'markdown',
-        'bg-red-500/10': job.type === 'youtube',
-        'bg-emerald-500/10': job.type === 'url',
+        'bg-amber/10': job.type === 'youtube',
+        'bg-emerald/10': job.type === 'url',
       })}>
         <Icon className={cn('w-4 h-4', statusColor)} />
       </div>
@@ -67,12 +67,12 @@ function JobCard({ job, onRemove }: { job: UploadJob; onRemove: () => void }) {
               <Loader2 className="w-3 h-3 text-cyan animate-spin flex-shrink-0" />
             </>
           ) : job.status === 'complete' ? (
-            <div className="flex items-center gap-1.5 text-emerald-400">
+            <div className="flex items-center gap-1.5 text-emerald">
               <CheckCircle2 className="w-3.5 h-3.5" />
               <span className="text-xs">Ready — indexed and searchable</span>
             </div>
           ) : job.status === 'error' ? (
-            <div className="flex items-center gap-1.5 text-rose-400">
+            <div className="flex items-center gap-1.5 text-rose">
               <XCircle className="w-3.5 h-3.5" />
               <span className="text-xs">{job.error ?? 'Upload failed'}</span>
             </div>
@@ -160,12 +160,12 @@ function ProcessingSteps({ currentStep }: { currentStep: number }) {
         <div key={step} className="flex items-center gap-2.5">
           <div className={cn(
             'w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300',
-            i < currentStep  ? 'bg-emerald-500/20 border border-emerald-500'
+            i < currentStep  ? 'bg-emerald/20 border border-emerald'
             : i === currentStep ? 'bg-cyan/20 border border-cyan animate-pulse'
             : 'bg-surface border border-border'
           )}>
             {i < currentStep
-              ? <CheckCircle2 className="w-2.5 h-2.5 text-emerald-400" />
+              ? <CheckCircle2 className="w-2.5 h-2.5 text-emerald" />
               : i === currentStep
               ? <Loader2 className="w-2.5 h-2.5 text-cyan animate-spin" />
               : null
@@ -173,7 +173,7 @@ function ProcessingSteps({ currentStep }: { currentStep: number }) {
           </div>
           <span className={cn(
             'text-xs',
-            i < currentStep  ? 'text-emerald-400 line-through'
+            i < currentStep  ? 'text-emerald line-through'
             : i === currentStep ? 'text-cyan font-medium'
             : 'text-text-muted'
           )}>
@@ -385,10 +385,10 @@ export function UploadView() {
                 Supported Sources
               </p>
               {[
-                { icon: FileText, label: 'PDF Documents',   color: 'text-rose-400' },
-                { icon: FileText, label: 'Markdown Notes',  color: 'text-emerald-400' },
-                { icon: FileText, label: 'Plain Text',      color: 'text-amber-400' },
-                { icon: Youtube,  label: 'YouTube Videos',  color: 'text-red-400' },
+                { icon: FileText, label: 'PDF Documents',   color: 'text-rose' },
+                { icon: FileText, label: 'Markdown Notes',  color: 'text-emerald' },
+                { icon: FileText, label: 'Plain Text',      color: 'text-amber' },
+                { icon: Youtube,  label: 'YouTube Videos',  color: 'text-amber' },
                 { icon: Globe,    label: 'Web Articles',    color: 'text-cyan' },
               ].map(({ icon: Icon, label, color }) => (
                 <div key={label} className="flex items-center gap-2 text-xs text-text-secondary">
@@ -401,8 +401,8 @@ export function UploadView() {
             {/* Tips */}
             <div className="glass-sm rounded-xl p-4">
               <div className="flex items-center gap-1.5 mb-2">
-                <AlertCircle className="w-3.5 h-3.5 text-amber-400" />
-                <p className="text-2xs font-semibold text-amber-400 uppercase tracking-widest font-mono">Tips</p>
+                <AlertCircle className="w-3.5 h-3.5 text-amber" />
+                <p className="text-2xs font-semibold text-amber uppercase tracking-widest font-mono">Tips</p>
               </div>
               <ul className="space-y-1.5 text-xs text-text-muted">
                 <li>• Structured PDFs index better than scanned ones</li>
